@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float moveSpeed=20; //velocidade do jogador
+    public float moveSpeed=50; //velocidade do jogador
     public float maxSpeed = 50f;//velocidade maxima do jogador
     public float jumpPower = 250f;//potencia do salto
     public bool grounded;//esta no chão
