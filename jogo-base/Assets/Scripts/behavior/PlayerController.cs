@@ -7,8 +7,14 @@ public class PlayerController : MonoBehaviour
 
     public PlayerMovement movementScript;
 
+
+    void Start () {
+        movementScript = gameObject.GetComponentInParent<PlayerMovement>();
+    }
+
     void Update()
     {
+        
         if (movementScript != null) {
 
             if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -32,6 +38,16 @@ public class PlayerController : MonoBehaviour
                 movementScript.moveRight();
                 ActionTracker.addAction(ActionType.MOVE_RIGHT);
             }
+
+            if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            {
+                movementScript.sprinting = true;
+            }else
+            {
+                movementScript.sprinting = false;
+            }
+
+           
             
         }
         

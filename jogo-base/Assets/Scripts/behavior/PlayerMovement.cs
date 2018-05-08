@@ -26,6 +26,13 @@ public class PlayerMovement : MonoBehaviour
     /* A última direção para a qual o player se estava a mover */
     private float direction;
 
+    /* Player está a dar sprint */
+    public bool sprinting;
+
+    /* Taxa de sprint */
+    private const float SPRINT_RATE = 100.7f;
+
+
     void Start()
     {
         player = gameObject.GetComponent<Rigidbody2D>();
@@ -59,7 +66,8 @@ public class PlayerMovement : MonoBehaviour
             direction = offset;
         }
 
-        player.AddForce((Vector2.right * movementSpeed) * offset);
+        float speed=sprinting ? movementSpeed * SPRINT_RATE : movementSpeed;
+        player.AddForce((Vector2.right *  speed) * offset);
         transform.localScale = new Vector3(offset, 1, 1);
     }
 
