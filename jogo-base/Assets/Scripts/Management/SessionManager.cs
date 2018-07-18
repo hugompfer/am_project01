@@ -127,7 +127,8 @@ public class SessionManager
 
     private Character getCharacter(String name)
     {
-        switch (name)
+        string correctName = name.Replace("\"","");
+        switch (correctName)
         {
             case "Scout": return new Scout();
             case "Buster": return new Buster();
